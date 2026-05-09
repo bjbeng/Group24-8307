@@ -1,0 +1,44 @@
+[Unit]
+Description=IndustryAgent Backend (FastAPI + uvicorn)
+Documentation=https://github.com/your-org/industry-audit
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/industryagent/backend
+
+# 所有可配置项走 EnvironmentFile，代码里严禁 hardcode
+EnvironmentFile=/opt/industryagent/.env
+
+ExecStart=/opt/industryagent/venv/bin/uvicorn app.main:app \
+    --host 127.0.0.1 \
+    --port 8001 \
+    --workers 2 \
+    --log-level info \
+    --access-log
+
+# 优雅停机：等待正在执行的审核任务
+TimeoutStopSec=60
+KillMode=mixed
+
+# 崩溃自动重启
+Restart=on-failure
+RestartSec=5
+
+# 安全加固
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ReadWritePaths=/opt/industryagent/data
+ProtectHome=yes
+
+# 日志
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=industryagent
+
+[Install]
+WantedBy=multi-user.target

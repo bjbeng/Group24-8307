@@ -1,0 +1,134 @@
+# 标准版本库种子数据
+# status: current=现行有效  superseded=已被取代
+# 更新时只需修改此文件，重启服务自动导入（幂等）
+
+standards:
+  # ── 场景一已收录的五个标准 ──────────────────────────────────────────
+  - number_raw: "AQ 3057"
+    number_normalized: "AQ3057"
+    latest_year: 2025
+    title: "陆上油气长输管道建设项目安全预评价导则"
+    status: current
+    source: manual
+
+  - number_raw: "GB/T 1.1"
+    number_normalized: "GBT1.1"
+    latest_year: 2020
+    title: "标准化工作导则 第1部分：标准化文件的结构和起草规则"
+    status: current
+    source: manual
+
+  - number_raw: "GB/T 21246"
+    number_normalized: "GBT21246"
+    latest_year: 2020
+    title: "埋地钢质管道阴极保护参数测量方法"
+    status: current
+    source: manual
+
+  - number_raw: "Q/SY 1217"
+    number_normalized: "QSY1217"
+    latest_year: 2009
+    title: "HSE作业指导书编写指南"
+    status: current
+    source: manual
+
+  - number_raw: "TSG 31"
+    number_normalized: "TSG31"
+    latest_year: 2025
+    title: "工业管道安全技术规程"
+    status: current
+    source: manual
+
+  # ── 被 TSG 31-2025 取代的旧标准（文档若引用则标为过时）──────────────
+  - number_raw: "TSG D0001"
+    number_normalized: "TSGD0001"
+    latest_year: 2009
+    title: "压力管道安全技术监察规程——工业管道（已被TSG31-2025取代）"
+    status: superseded
+    superseded_by: "TSG31"
+    source: manual
+
+  # ── 常见引用标准（扩充可继续往下加）────────────────────────────────
+  - number_raw: "GB 32167"
+    number_normalized: "GB32167"
+    latest_year: 2015
+    title: "油气输送管道完整性管理规范"
+    status: current
+    source: manual
+
+  - number_raw: "GB 50251"
+    number_normalized: "GB50251"
+    latest_year: 2015
+    title: "输气管道工程设计规范"
+    status: current
+    source: manual
+
+  - number_raw: "GB 50253"
+    number_normalized: "GB50253"
+    latest_year: 2014
+    title: "输油管道工程设计规范"
+    status: current
+    source: manual
+
+  - number_raw: "GB/T 21447"
+    number_normalized: "GBT21447"
+    latest_year: 2018
+    title: "钢质管道外腐蚀控制规范"
+    status: current
+    source: manual
+
+  - number_raw: "GB/T 21448"
+    number_normalized: "GBT21448"
+    latest_year: 2017
+    title: "埋地钢质管道阴极保护技术规范"
+    status: current
+    source: manual
+
+  - number_raw: "SY/T 5922"
+    number_normalized: "SYT5922"
+    latest_year: 2024
+    title: "天然气管道运行规范"
+    status: current
+    source: manual
+
+  - number_raw: "SY/T 6069"
+    number_normalized: "SYT6069"
+    latest_year: 2020
+    title: "油气管道仪表及自动化系统运行技术规范"
+    status: current
+    source: manual
+
+  - number_raw: "GB/T 19023"
+    number_normalized: "GBT19023"
+    latest_year: 2025
+    title: "质量管理体系 成文信息指南"
+    status: current
+    source: manual
+
+  - number_raw: "GB/T 25000.51"
+    number_normalized: "GBT25000.51"
+    latest_year: 2016
+    title: "系统与软件工程 系统与软件质量要求和评价"
+    status: current
+    source: manual
+
+  - number_raw: "SY/T 6696"
+    number_normalized: "SYT6696"
+    latest_year: 2019
+    title: "油气管道完整性管理规范"
+    status: current
+    source: manual
+
+  - number_raw: "AQ 3013"
+    number_normalized: "AQ3013"
+    latest_year: 2008
+    title: "危险化学品从业单位安全标准化通用规范"
+    status: current
+    source: manual
+
+  - number_raw: "Q/SY 1002.1"
+    number_normalized: "QSY1002.1"
+    latest_year: 2007
+    title: "健康、安全与环境管理体系 第1部分：规范"
+    status: current
+    source: manual

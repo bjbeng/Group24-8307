@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "industry-audit",
+  "version": "0.1.0",
+  "identifier": "com.industry.audit",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "工业文档 AI 审核系统",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 900,
+        "minHeight": 600
+      }
+    ],
+    "security": { "csp": null }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": []
+  }
+}

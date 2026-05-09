@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Environment / secrets
+.env
+backend/.env
+deploy/*.pem
+deploy/*.key
+
+# Data / runtime artifacts
+backend/data/
+backend/src/__pycache__/
+backend/config/__pycache__/
+
+# Frontend build
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Tauri build
+frontend/src-tauri/target/
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
