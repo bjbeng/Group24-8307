@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────
+# Render Blueprint — 基础设施即代码
+# 将此文件推送到 GitHub 仓库根目录后，在 Render Dashboard
+# 点击「New +」→「Blueprint」导入即可自动创建服务。
+#
+# 敏感变量（API Key 等）不在本文件中填写，
+# 在 Render Dashboard → Environment 中设置。
+# ─────────────────────────────────────────────────────────
+
+services:
+  # ── 后端 Web Service ──────────────────────────────────
+  - type: web
+    name: industry-audit-backend
+    runtime: docker
+    region: singapore  # 新加坡节点，亚洲延迟最低
+    plan: starter      # $7/月起步，适合原型验证
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /health
+    envVars:
+      # ── 安全 ────────────────────────────────────────
+      - key: SECRET_KEY
+        sync: false     # 在 Dashboard 手动输入
+      - key: CORS_ORIGINS
+        value: https://your-frontend.vercel.app
+
+      # ── 数据库 ──────────────────────────────────────
+      - key: DATABASE_URL
+        value: sqlite:///./data/audit.db
+      - key: ENGINE_DB_PATH
+        value: ./data/audit.db
+
+      # ── 文件上传 ────────────────────────────────────
+      - key: UPLOAD_DIR
+        value: ./data/uploads
+      - key: MAX_UPLOAD_MB
+        value: "50"
+
+      # ── 全局开关 ────────────────────────────────────
+      - key: LLM_USE_MOCK
+        value: "false"
+
+      # ── Cookie 安全 ─────────────────────────────────
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: COOKIE_SAMESITE
+        value: lax
+
+      # ════════════════════════════════════════════════
+      #  LLM API 配置 —— 在 Render Dashboard 中设置
+      #  参考 backend/.env.production.example 中的变量名
+      # ════════════════════════════════════════════════
+      - key: S1_EXPLORER_A_API_KEY
+        sync: false
+      - key: S2_EXPLORER_A_API_KEY
+        sync: false
+      - key: S2_EXPLORER_B_API_KEY
+        sync: false
+      - key: S1_CRITIC_API_KEY
+        sync: false
+      - key: S2_CRITIC_API_KEY
+        sync: false
+      - key: MONITOR_API_KEY
+        sync: false
