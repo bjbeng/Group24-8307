@@ -8,8 +8,12 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # ── 系统依赖（用于编译部分原生包）───────────────────────
+#RUN apt-get update && apt-get install -y --no-install-recommends \
+    #build-essential \
+    #&& rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    libreoffice \
     && rm -rf /var/lib/apt/lists/*
 
 # ── 复制后端代码 ─────────────────────────────────────────
