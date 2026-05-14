@@ -5,7 +5,7 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "http://47.82.67.196/api/$1" },
+    { "source": "/api/(.*)", "destination": "http://47.82.67.196/api" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
