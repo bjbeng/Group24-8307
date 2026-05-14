@@ -1,16 +1,14 @@
 import axios from "axios";
 
-const BASE = import.meta.env.VITE_API_BASE as string;
-export const WS_BASE = import.meta.env.VITE_WS_BASE as string;
-
-if (!BASE) throw new Error("VITE_API_BASE 未设置，请检查 .env 文件");
+const BASE: string = import.meta.env.VITE_API_BASE || "";
+const WS_PROTO = window.location.protocol === "https:" ? "wss:" : "ws:";
+export const WS_BASE: string = import.meta.env.VITE_WS_BASE || `${WS_PROTO}//${window.location.host}`;
 
 export const api = axios.create({
   baseURL: BASE,
   withCredentials: true,
 });
 
-// CSRF：从 cookie 读 csrf_token 写入请求头
 api.interceptors.request.use((config) => {
   const match = document.cookie
     .split("; ")
@@ -22,7 +20,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// 401 / 403 → 跳登录
 api.interceptors.response.use(
   (res) => res,
   (err) => {
